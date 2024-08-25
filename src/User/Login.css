@@ -4,57 +4,174 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f3f3f3;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .profilePicContainer {
-    margin-bottom: 20px;
-  }
-  
-  .profilePic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-  }
-  .inputContainer {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/1251400.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.contentWrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-  }
-  .input {
-    width: 300px;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
+    justify-content: center;
+    padding: 20px;
+    max-width: 400px;
+    z-index: 1;
+}
 
-  .loginButton {
-    width: 300px;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0078d4;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.profilePicContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-  .spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #0078d4;
+.profilePic {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-  }
+    object-fit: cover;
+}
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.userInfo {
+    margin-top: 10px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+.userInfo p {
+    margin: 5px 0;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input::placeholder {
+    color: white; 
   }
   
+.input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #828181;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: rgb(54, 52, 52);
+    caret-color: white;
+}
+
+.forgotPIN {
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.forgotPIN:hover {
+    color: #d3d3d3; 
+}
+
+.bottomRightIcons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bottomRightIcons i {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.powerMenu {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+.powerMenuOption {
+    padding: 10px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.powerMenuOption:hover {
+    background-color: #f0f0f0;
+}
+.signInOptions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .signInOptionsButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 15   px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+  }
+  
+  .signInOptionsButton .fa-chevron-down {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .signInOptionsButton:hover {
+    color: #d3d3d3;
+  }
+  
+  .signInOptionsMenu {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .signInOptionIcon {
+    font-size: 20px;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background-color: rgb(79, 77, 77);
+    padding: 5px;
+  }
+  
+  .signInOptionIcon:hover {
+    color: #d3d3d3; 
+  }

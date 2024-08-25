@@ -1,52 +1,86 @@
 import React, { useState } from 'react';
 import ProfilePic from "../assets/login/bryan.jpg";
-import "./Login.css"; 
+import './Login.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function LoginScreen() {
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [showPowerMenu, setShowPowerMenu] = useState(false);
+  const [showSignInOptions, setShowSignInOptions] = useState(false);
 
-  const handleLogin = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      alert('Login successful!');
-    }, 2000);
+  const handleForgotPIN = () => {
+    alert('Forgot PIN clicked!');
+  };
+
+  const handlePowerClick = () => {
+    setShowPowerMenu(!showPowerMenu);
+  };
+
+  const handleSignInOptionsClick = () => {
+    setShowSignInOptions(!showSignInOptions);
   };
 
   return (
     <div className="container">
-      <div className="profilePicContainer">
-        <img
-          src={ProfilePic}
-          alt="Profile"
-          className="profilePic"
-        />
+      <div className="backgroundImage"></div>
+      <div className="contentWrapper">
+        <div className="profilePicContainer">
+          <img
+            src={ProfilePic}
+            alt="Profile"
+            className="profilePic"
+          />
+          <div className="userInfo">
+            <p className="username">Bryan</p>
+            <p>bryanlomerioanino@gmail.com</p>
+          </div>
+        </div>
+        <div className="inputContainer">
+          <input
+            type="password"
+            placeholder="PIN"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input"
+          />
+        </div>
+        <a href="#" onClick={handleForgotPIN} className="forgotPIN">
+          I forgot my PIN
+        </a>
+        <div className="signInOptions">
+          <button
+            className="signInOptionsButton"
+            onClick={handleSignInOptionsClick}
+          >
+            Sign-in options
+          </button>
+          {showSignInOptions && (
+            <div className="signInOptionsMenu">
+              <i
+                className="fas fa-user signInOptionIcon"
+                title="Sign in with Face"
+              ></i>
+              <i
+                className="fas fa-key signInOptionIcon"
+                title="Sign in with PIN"
+              ></i>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="inputContainer">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="input"
-        />
-      </div>
-      <button onClick={handleLogin} className="loginButton">
-        {isLoading ? (
-          <div className="spinner"></div>
-        ) : (
-          'Login'
+      <div className="bottomRightIcons">
+        <i className="fas fa-power-off" onClick={handlePowerClick}></i>
+        <i className="fas fa-wifi"></i>
+        <i className="fas fa-accessible-icon"></i>
+        
+        {showPowerMenu && (
+          <div className="powerMenu">
+            <button className="powerMenuOption">Sleep</button>
+            <button className="powerMenuOption">Shutdown</button>
+            <button className="powerMenuOption">Restart</button>
+          </div>
         )}
-      </button>
+      </div>
     </div>
   );
 }
