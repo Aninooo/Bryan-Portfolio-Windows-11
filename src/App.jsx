@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import LandingPage from './LandingPage';
-import LoginScreen from './Login';
+import LandingPage from './User/LandingPage.jsx'; 
+import LoginScreen from './user/Login.jsx';      
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
 
   const handleEnter = () => {
-    setShowLogin(true);
+    setShowLogin(true); 
   };
 
   return (
