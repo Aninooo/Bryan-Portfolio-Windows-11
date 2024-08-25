@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProfilePic from "../assets/login/bryan.jpg";
-import "./Login.css"; // Correct the import path to match your file structure
+import "./Login.css"; 
 
 function LoginScreen() {
   const [username, setUsername] = useState('');

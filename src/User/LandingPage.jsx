@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './LandingPage.module.css';
 
 function LandingPage({ onEnter }) {
   const [slideUp, setSlideUp] = useState(false);
@@ -33,15 +34,8 @@ function LandingPage({ onEnter }) {
   const formattedDate = currentTime.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
   return (
-    <div style={styles.container}>
-      <div
-        style={{
-          ...styles.content,
-          transform: slideUp ? 'translateY(-100vh)' : 'translateY(0)',
-          opacity: slideUp ? 0 : 1,
-          transition: 'transform 1s ease, opacity 1s ease',
-        }}
-      >
+    <div className={`${styles.container} ${slideUp ? styles.slideUp : ''}`}>
+      <div className={styles.content}>
         <h1>{formattedTime}</h1>
         <p>{formattedDate}</p>
         <p>Press "Enter" to proceed to the login page</p>
@@ -49,25 +43,5 @@ function LandingPage({ onEnter }) {
     </div>
   );
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    backgroundColor: '#0078d4',
-    color: '#fff',
-    fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-    overflow: 'hidden',
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-};
 
 export default LandingPage;
