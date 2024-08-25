@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LandingPage from './User/LandingPage.jsx'; 
-import LoginScreen from './user/Login.jsx';  
+import LoginScreen from './User/Login.jsx';  
 import Home from './Home.jsx';    
 
 function App() {
