@@ -3,7 +3,7 @@ import ProfilePic from "../assets/login/bryan.jpg";
 import './Login.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-function LoginScreen() {
+function LoginScreen({ onLogin }) {
   const [password, setPassword] = useState('');
   const [showPowerMenu, setShowPowerMenu] = useState(false);
   const [showSignInOptions, setShowSignInOptions] = useState(false);
@@ -18,6 +18,16 @@ function LoginScreen() {
 
   const handleSignInOptionsClick = () => {
     setShowSignInOptions(!showSignInOptions);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      if (password) {
+        onLogin(); 
+      } else {
+        alert('Please enter your PIN.');
+      }
+    }
   };
 
   return (
@@ -42,6 +52,7 @@ function LoginScreen() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="input"
+            onKeyPress={handleKeyPress}
           />
         </div>
         <a href="#" onClick={handleForgotPIN} className="forgotPIN">

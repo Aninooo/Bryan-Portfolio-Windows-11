@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
 import LandingPage from './User/LandingPage.jsx'; 
-import LoginScreen from './user/Login.jsx';      
+import LoginScreen from './user/Login.jsx';  
+import Home from './Home.jsx';    
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleEnter = () => {
     setShowLogin(true); 
   };
 
+  const handleLogin = () => {
+    setIsLoggedIn(true); 
+  };
+
   return (
     <div>
-      {showLogin ? <LoginScreen /> : <LandingPage onEnter={handleEnter} />}
+      {!isLoggedIn ? (
+        showLogin ? (
+          <LoginScreen onLogin={handleLogin} />
+        ) : (
+          <LandingPage onEnter={handleEnter} />
+        )
+      ) : (
+        <Home />
+      )}
     </div>
   );
 }

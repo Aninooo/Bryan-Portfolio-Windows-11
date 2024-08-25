@@ -46,6 +46,7 @@
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid white;
 }
 
 .userInfo {
@@ -69,6 +70,7 @@ input::placeholder {
   }
   
 .input {
+    color: white;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #828181;
@@ -76,6 +78,7 @@ input::placeholder {
     font-size: 14px;
     background-color: rgb(54, 52, 52);
     caret-color: white;
+    width: 250px;
 }
 
 .forgotPIN {
@@ -100,7 +103,7 @@ input::placeholder {
 }
 
 .bottomRightIcons i {
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     cursor: pointer;
 }
