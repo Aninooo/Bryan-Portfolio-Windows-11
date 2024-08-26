@@ -6,7 +6,7 @@ html, body {
   }
   
   .homePage {
-    background-image: url('./assets/img19.jpg'); 
+    background-image: url('../assets/img19.jpg'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 

@@ -1,5 +1,5 @@
 import React from 'react';
-import recycleBinImage from './assets/recycle-bin.png';
+import recycleBinImage from '../assets/recycle-bin.png';
 import './Home.css'; 
 
 function HomePage() {

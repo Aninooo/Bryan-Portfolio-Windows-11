@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LandingPage from './User/LandingPage.jsx'; 
 import LoginScreen from './User/Login.jsx';  
-import Home from './Home.jsx';    
+import Home from './Home/Home.jsx';    
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
