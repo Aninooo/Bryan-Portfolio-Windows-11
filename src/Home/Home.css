@@ -6,7 +6,7 @@ html, body {
 }
 
 .homePage {
-  background-image: url('../assets/img19.jpg'); 
+  background-image: url('../assets/bg2.jpg'); 
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -28,6 +28,16 @@ html, body {
   cursor: pointer;
   position: absolute; 
   left: 20px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, backdrop-filter 0.2s ease;
+  width: 85px;
+  
+}
+
+.icon-container:hover, 
+.resume-container:hover, 
+.vscode-container:hover {
+  background: rgba(255, 255, 255, 0.2); 
+
 }
 
 .icon-label, .resume-label, .vscode-label {
@@ -39,11 +49,4 @@ html, body {
 .recycle-bin-img, .resume-icon, .vscode-icon {
   width: 50px; 
   height: 50px; 
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
-}
-
-.recycle-bin-img:hover, 
-.resume-icon:hover, 
-.vscode-icon:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }

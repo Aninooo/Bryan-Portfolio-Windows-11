@@ -49,7 +49,7 @@ function HomePage() {
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      <h1>Portfolio ako ni bryan pero dipa tapos</h1>
+      <h1></h1>
       
       <div
         className="icon-container"
