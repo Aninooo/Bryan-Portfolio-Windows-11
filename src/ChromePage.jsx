@@ -23,7 +23,7 @@ const ChromePage = () => {
         </div>
       </header>
       <main className="chrome-content">
-        <h1>WAG NA MAGALIT <br></br>LABLAB KO AMBEBE KO NAYAN</h1>
+        <h1>resume here</h1>
       </main>
     </div>
   );

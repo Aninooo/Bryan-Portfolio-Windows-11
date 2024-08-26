@@ -14,61 +14,36 @@ html, body {
   width: 100vw; 
   display: flex; 
   align-items: center; 
-  justify-content: center;
+  justify-content: flex-start;
   color: white; 
   text-align: center; 
   overflow: hidden; 
-  position: relative;
+  position: relative; 
 }
 
-.icon-container {
+.icon-container, .resume-container, .vscode-container {
   display: flex;
   flex-direction: column; 
   align-items: center;  
   cursor: pointer;
-  position: absolute;
+  position: absolute; 
+  left: 20px;
 }
 
-.icon-label {
+.icon-label, .resume-label, .vscode-label {
   margin-top: 5px; 
   font-size: 14px; 
   color: #fff;
 }
 
-.recycle-bin-img {
+.recycle-bin-img, .resume-icon, .vscode-icon {
   width: 50px; 
   height: 50px; 
   transition: transform 0.2s ease, box-shadow 0.2s ease; 
 }
 
-.recycle-bin-img:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-}
-
-.resume-container, .vscode-container {
-  display: flex;
-  flex-direction: column; 
-  align-items: center;  
-  cursor: pointer; 
-  position: absolute; 
-}
-.vscode-label{
-  font-size: 14px;
-}
-.resume-icon, .vscode-icon {
-  width: 50px; 
-  height: 50px; 
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
-}
-
-.resume-label{
-  margin-top: 5px; 
-  font-size: 14px; 
-  color: #fff; 
-}
-
-.resume-container:hover .resume-icon, 
-.vscode-container:hover .vscode-icon, 
-.icon-container:hover .recycle-bin-img {
+.recycle-bin-img:hover, 
+.resume-icon:hover, 
+.vscode-icon:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
