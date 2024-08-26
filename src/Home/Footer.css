@@ -1,30 +1,56 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(56, 55, 54, 0.8); 
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    backdrop-filter: blur(5px); 
-  }
-  
-  .taskbar {
-    display: flex;
-    align-items: center;
-  }
-  
-  .windows-icon, .chrome-icon, .fileExplorer-icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    margin: 0 2px;
-    padding: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .windows-icon:hover, .chrome-icon:hover, .fileExplorer-icon:hover {
-    box-shadow: 0px 5px 80px rgba(0, 0, 0, 0.3);
-  }
-  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(56, 55, 54, 0.9); 
+  color: #fff;
+  display: flex;
+  justify-content: center; 
+  padding: 5px 0;
+  backdrop-filter: blur(5px); 
+}
+
+.taskbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.windows-icon, .chrome-icon, .fileExplorer-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.system-icons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 20px; 
+}
+
+.system-icon {
+  margin: 0 10px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.time-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.time-date div {
+  font-size: 12px;
+}
+
+.windows-icon:hover, .chrome-icon:hover, .fileExplorer-icon:hover {
+  background-color: rgba(99, 98, 98, 0.276); 
+  backdrop-filter: blur(8px); 
+  border-radius: 5px;
+}

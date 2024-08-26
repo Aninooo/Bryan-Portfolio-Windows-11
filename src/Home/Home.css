@@ -1,50 +1,74 @@
 html, body {
-    margin: 0; 
-    padding: 0; 
-    height: 100%;
-    width: 100%; 
-  }
-  
-  .homePage {
-    background-image: url('../assets/img19.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 100vh; 
-    width: 100vw; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    color: white; 
-    text-align: center; 
-    overflow: hidden; 
-    position: relative;
-  }
-  
-  .recycle-bin-img {
-    width: 50px; 
-    height: 50px; 
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
-  }
-  
-  .recycle-bin-img:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-  }
-  .resume-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;  
-  }
-  
-  .resume-icon {
-    width: 50px; 
-    height: 50px; 
-  }
-  
-  .resume-label {
-    margin-top: 5px; 
-    font-size: 14px; 
-    color: #fff; 
-  }
-  
+  margin: 0; 
+  padding: 0; 
+  height: 100%;
+  width: 100%; 
+}
+
+.homePage {
+  background-image: url('../assets/img19.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  width: 100vw; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  color: white; 
+  text-align: center; 
+  overflow: hidden; 
+  position: relative;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;  
+  cursor: pointer;
+  position: absolute;
+}
+
+.icon-label {
+  margin-top: 5px; 
+  font-size: 14px; 
+  color: #fff;
+}
+
+.recycle-bin-img {
+  width: 50px; 
+  height: 50px; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.recycle-bin-img:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.resume-container, .vscode-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;  
+  cursor: pointer; 
+  position: absolute; 
+}
+.vscode-label{
+  font-size: 14px;
+}
+.resume-icon, .vscode-icon {
+  width: 50px; 
+  height: 50px; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.resume-label{
+  margin-top: 5px; 
+  font-size: 14px; 
+  color: #fff; 
+}
+
+.resume-container:hover .resume-icon, 
+.vscode-container:hover .vscode-icon, 
+.icon-container:hover .recycle-bin-img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}

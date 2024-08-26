@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function LoginScreen({ onLogin }) {
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); 
   const [showPowerMenu, setShowPowerMenu] = useState(false);
   const [showSignInOptions, setShowSignInOptions] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -22,14 +23,18 @@ function LoginScreen({ onLogin }) {
   };
 
   const handleLogin = () => {
-    if (password) {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        onLogin(); 
-      }, 2000); 
+    if (/^\d+$/.test(password)) { 
+      if (password) {
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+          onLogin(); 
+        }, 2000); 
+      } else {
+        alert('Please enter your PIN.');
+      }
     } else {
-      alert('Please enter your PIN.');
+      setErrorMessage('Invalid PIN. Please enter only digits.');
     }
   };
 
@@ -67,10 +72,14 @@ function LoginScreen({ onLogin }) {
                 type="password"
                 placeholder="PIN"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setErrorMessage('');
+                }}
                 className="input"
                 onKeyPress={handleKeyPress}
               />
+              {errorMessage && <p className="errorMessage">{errorMessage}</p>} 
             </div>
             <a href="#" onClick={handleForgotPIN} className="forgotPIN">
               I forgot my PIN
