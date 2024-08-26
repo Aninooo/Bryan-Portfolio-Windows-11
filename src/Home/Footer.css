@@ -2,12 +2,12 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgba(56, 55, 54, 0.8); /* Dark gray with transparency */
+    background-color: rgba(56, 55, 54, 0.8); 
     color: #fff;
     display: flex;
     justify-content: center;
     padding: 10px 0;
-    backdrop-filter: blur(5px); /* Applies blur effect to the background */
+    backdrop-filter: blur(5px); 
   }
   
   .taskbar {

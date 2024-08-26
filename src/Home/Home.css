@@ -29,7 +29,22 @@ html, body {
   }
   
   .recycle-bin-img:hover {
-    transform: scale(1.1); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  }
+  .resume-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+  }
+  
+  .resume-icon {
+    width: 50px; 
+    height: 50px; 
+  }
+  
+  .resume-label {
+    margin-top: 5px; 
+    font-size: 14px; 
+    color: #fff; 
   }
   

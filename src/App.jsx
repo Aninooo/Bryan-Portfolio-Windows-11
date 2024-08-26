@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './User/LandingPage.jsx'; 
 import LoginScreen from './User/Login.jsx';  
 import Home from './Home/Home.jsx';    
+import ChromePage from './ChromePage.jsx'; 
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -16,17 +18,22 @@ function App() {
   };
 
   return (
-    <div>
-      {!isLoggedIn ? (
-        showLogin ? (
-          <LoginScreen onLogin={handleLogin} />
+    <Router>
+      <Routes>
+        {!isLoggedIn ? (
+          showLogin ? (
+            <Route path="/" element={<LoginScreen onLogin={handleLogin} />} />
+          ) : (
+            <Route path="/" element={<LandingPage onEnter={handleEnter} />} />
+          )
         ) : (
-          <LandingPage onEnter={handleEnter} />
-        )
-      ) : (
-        <Home />
-      )}
-    </div>
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/chrome" element={<ChromePage />} /> 
+          </>
+        )}
+      </Routes>
+    </Router>
   );
 }
 
