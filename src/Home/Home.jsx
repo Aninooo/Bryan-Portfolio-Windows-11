@@ -1,5 +1,6 @@
 import React from 'react';
 import recycleBinImage from '../assets/recycle-bin.png';
+import Footer from './Footer'; // Correct import for Footer component
 import './Home.css'; 
 
 function HomePage() {
@@ -16,6 +17,7 @@ function HomePage() {
         className="recycle-bin-img"
         onClick={handleRecycleBinClick}
       />
+      <Footer /> {/* Add Footer component here */}
     </div>
   );
 }

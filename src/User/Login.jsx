@@ -101,7 +101,6 @@ function LoginScreen({ onLogin }) {
       <div className="bottomRightIcons">
         <i className="fas fa-power-off" onClick={handlePowerClick}></i>
         <i className="fas fa-wifi"></i>
-        <i className="fas fa-accessible-icon"></i>
         
         {showPowerMenu && (
           <div className="powerMenu">
