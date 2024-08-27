@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProfilePic from "../assets/login/bryan.jpg";
+import ProfilePic from "../assets/login/bryan.webp";
 import './Login.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -23,25 +23,21 @@ function LoginScreen({ onLogin }) {
   };
 
   const handleLogin = () => {
-    if (/^\d+$/.test(password)) { 
-      if (password) {
-        setLoading(true);
-        setTimeout(() => {
-          setLoading(false);
-          onLogin(); 
-        }, 2000); 
-      } else {
-        alert('Please enter your PIN.');
-      }
-    } else {
+    if (password === '') {
+      alert('Please enter your PIN.');
+    } else if (!/^\d+$/.test(password)) {
       setErrorMessage('Invalid PIN. Please enter only digits.');
+    } else {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        onLogin(); 
+      }, 2000);
     }
   };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleLogin();
-    }
+    const handleFormSubmit = (e) => {
+    e.preventDefault();
+    handleLogin();
   };
 
   return (
@@ -67,7 +63,7 @@ function LoginScreen({ onLogin }) {
                 <p>bryanlomerioanino@gmail.com</p>
               </div>
             </div>
-            <div className="inputContainer">
+            <form className="inputContainer" onSubmit={handleFormSubmit}>
               <input
                 type="password"
                 placeholder="PIN"
@@ -77,10 +73,11 @@ function LoginScreen({ onLogin }) {
                   setErrorMessage('');
                 }}
                 className="input"
-                onKeyPress={handleKeyPress}
+                autoComplete="off"
               />
-              {errorMessage && <p className="errorMessage">{errorMessage}</p>} 
-            </div>
+              {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+              <button type="submit" className="hiddenSubmitButton" />
+            </form>
             <a href="#" onClick={handleForgotPIN} className="forgotPIN">
               I forgot my PIN
             </a>
@@ -110,7 +107,6 @@ function LoginScreen({ onLogin }) {
       <div className="bottomRightIcons">
         <i className="fas fa-power-off" onClick={handlePowerClick}></i>
         <i className="fas fa-wifi"></i>
-        
         {showPowerMenu && (
           <div className="powerMenu">
             <button className="powerMenuOption">Sleep</button>

@@ -175,4 +175,24 @@ font-size: 13px;
   padding: 5px;
   border-radius: 4px 4px 4px 4px;
   cursor: pointer;
+  font-weight: normal;
+}
+.section-recommended{
+  display: flex;
+  margin-left: 25px;
+  margin-top: 100px;
+  font-weight: bold;
+  color: white;
+  font-size: 13px;
+
+}
+.recommended-arrow{
+  position: relative;
+  left: 355px;
+  bottom: 0px;
+  background-color: #1a1919;
+  padding: 5px;
+  border-radius: 4px 4px 4px 4px;
+  font-weight: normal;
+  cursor: pointer;
 }

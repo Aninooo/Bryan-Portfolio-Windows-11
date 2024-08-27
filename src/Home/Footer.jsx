@@ -85,11 +85,11 @@ const Footer = () => {
           </div>
           <div className="all-apps">
             <div className="section-title">
-              All Apps <span className="arrow">→</span>
+              All Apps <span className="arrow">&nbsp;&nbsp;&nbsp;{">"}</span>
             </div>
           </div>
           <div className="recommendations">
-            <div className="section-title">Recommendations</div>
+            <div className="section-recommended">Recommended <span className='recommended-arrow'>More &nbsp; &nbsp;{">"}</span></div>
           </div>
         </div>
       )}
