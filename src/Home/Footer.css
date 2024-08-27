@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  position: relative; 
 }
 
 .windows-icon, .chrome-icon, .fileExplorer-icon {
@@ -53,4 +54,125 @@
   background-color: rgba(99, 98, 98, 0.276); 
   backdrop-filter: blur(8px); 
   border-radius: 5px;
+}
+
+.start-menu {
+  position: absolute;
+  bottom: 100%;
+  width: 600px; 
+  height: 500px;
+  background-color: #302f2f;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);  
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.search-container {   
+  margin-top: 20px;
+  align-self: center;
+  position: relative;
+  right: 10px;
+  width: 550px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #535353;
+  border-radius: 20px 20px 20px 20px;
+  background-color: #1a1919;
+  caret-color: white;
+
+}
+.pin-title{
+  color: white;
+align-items: start;
+position: relative;
+margin-right: 500px;
+margin-top: 20px;
+font-weight: bold;
+font-size: 13px;
+}
+.pinned-apps {
+  margin-top: 10px;
+}
+
+.apps-list {
+  display: flex;
+  gap: 50px;
+  justify-content: start;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.app-icon-chrome {
+  width: 30px; 
+  height: 30px;
+  display: block;
+  margin-left: 10px;
+}
+.app-icon-vscode {
+  width: 30px; 
+  height: 30px;
+  display: block;
+  margin-left: 7px;
+}
+.app-icon-recyclebin {
+  width: 30px; 
+  height: 30px;
+  display: block;
+  margin-left: 17px;
+}
+.app-icon-fileexplorer {
+  width: 30px; 
+  height: 30px;
+  display: block;
+  margin-left: 23px;
+}
+
+.chrome-label, .recyclebin, .fileexplorer, .vscode {
+  font-size: 14px;
+  margin-top: 5px; 
+  text-align: center;
+}
+
+.chrome-label{
+  color: white; 
+}
+
+.recyclebin {
+  color: white; 
+}
+
+.fileexplorer{
+  color: white; 
+}
+
+.vscode{
+  color: white; 
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-apps {
+font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  margin-right: 50px;
+  position: relative;
+  bottom: 90px;
+  color: white;
+  background-color: #1a1919;
+  padding: 5px;
+  border-radius: 4px 4px 4px 4px;
+  cursor: pointer;
 }

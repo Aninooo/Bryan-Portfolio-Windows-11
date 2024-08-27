@@ -5,30 +5,38 @@
   display: flex;
   flex-direction: column;
 }
-
 .chrome-header {
   height: 30px;
-  background-color: #333;
-  color: #fff;
+  background-color: #b3b3b3;
+  color: black;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 5px;
   position: relative;
 }
-
 .chrome-tabs {
-  flex-grow: 1;
   display: flex;
   align-items: center;
+  background-color: #e0e0e0; 
+  padding: 7px 20px;
+  position: relative;
+  border-radius: 15px 15px 0px 0px;
+  font-size: 15px;
+  margin-top: 8px;
+
+  
 }
 
-.chrome-tabs span {
-  font-size: 14px;
+.chrome-tabs .tab.selected {
+  background-color: #c0c0c0;
+  font-weight: bold;
+  border-bottom: 1px solid transparent; 
 }
 
 .chrome-controls {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .control-icon {
@@ -40,13 +48,13 @@
 
 .minimize {
   width: 20px;
-  height: 20px; 
+  height: 20px;
   color: black;
 }
 
 .close {
   width: 20px;
-  height: 20px; 
+  height: 20px;
   color: red;
 }
 
@@ -54,7 +62,7 @@
   flex-grow: 1;
   padding: 20px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -80,15 +88,16 @@
   border-radius: 30px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   outline: none;
+  transition: border-color 0.3s ease;
 }
 
 .google-input:focus {
   border-color: black;
 }
 
-input::placeholder {  
-  color: #999; 
-  opacity: 1; 
+input::placeholder {
+  color: #999;
+  opacity: 1;
 }
 
 .socials {
@@ -102,24 +111,22 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none; 
-  transition: transform 0.3s ease, opacity 0.3s ease; 
-  position: relative; 
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .social-item img {
-  width: 40px; 
+  width: 40px;
   height: 40px;
   transition: transform 0.3s ease;
 }
 
 .social-item:hover {
-  opacity: 0.6; 
+  opacity: 0.6;
 }
-
 
 .social-label {
   margin-top: 5px;
   font-size: 14px;
-  color: #333; 
+  color: #333;
 }
