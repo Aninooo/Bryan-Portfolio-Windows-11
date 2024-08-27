@@ -8,6 +8,7 @@ import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMinimize, faExpand, faCompress, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+
 function HomePage() {
   const [positions, setPositions] = useState({
     recycleBin: { top: '50px', left: '10px' },
