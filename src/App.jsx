@@ -4,7 +4,7 @@ import LandingPage from './User/LandingPage.jsx';
 import LoginScreen from './User/Login.jsx';  
 import Home from './Home/Home.jsx';    
 import ChromePage from './ChromePage.jsx'; 
-
+import Layout from './Layout.jsx'; 
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -22,16 +22,14 @@ function App() {
     <Router>
       <Routes>
         {!isLoggedIn ? (
-          showLogin ? (
-            <Route path="/" element={<LoginScreen onLogin={handleLogin} />} />
-          ) : (
-            <Route path="/" element={<LandingPage onEnter={handleEnter} />} />
-          )
-        ) : (
           <>
-            <Route path="/" element={<Home />} />
-            <Route path="/chrome" element={<ChromePage />} /> 
+            <Route path="/" element={showLogin ? <LoginScreen onLogin={handleLogin} /> : <LandingPage onEnter={handleEnter} />} />
           </>
+        ) : (
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/chrome" element={<ChromePage />} />
+          </Route>
         )}
       </Routes>
     </Router>

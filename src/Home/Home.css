@@ -21,7 +21,7 @@ html, body {
   position: relative;
 }
 
-.icon-container, .resume-container, .vscode-container {
+.icon-container, .resume-container, .vscode-container, .projects-container-main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,17 +33,18 @@ html, body {
 
 .icon-container:hover,
 .resume-container:hover,
-.vscode-container:hover {
+.vscode-container:hover,
+.projects-container-main:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.icon-label, .resume-label, .vscode-label {
+.icon-label, .resume-label, .vscode-label, .projects-label {
   margin-top: 5px;
   font-size: 14px;
   color: #fff;
 }
 
-.recycle-bin-img, .resume-icon, .vscode-icon {
+.recycle-bin-img, .resume-icon, .vscode-icon, .projects-icon {
   width: 50px;
   height: 50px;
 }
@@ -85,4 +86,33 @@ html, body {
 .pdf-viewer {
   width: 100%;
   height: 100%;
+}
+
+
+.projects-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.close-projects {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.close-projects:hover{
+  background-color: rgb(162, 44, 44);
 }

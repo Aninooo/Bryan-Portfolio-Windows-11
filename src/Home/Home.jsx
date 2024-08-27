@@ -3,20 +3,23 @@ import recycleBinImage from '../assets/recycle-bin.png';
 import Folder from '../assets/folder.png';
 import Vscode from '../assets/vscode.png';
 import resumePdf from '../assets/lomerio_resume.pdf';
+import Projects from '../assets/projects.png';
 import Footer from './Footer';
+import ProjectsComponent from '../projects/Projects'; 
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMinimize, faExpand, faCompress, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-
 function HomePage() {
   const [positions, setPositions] = useState({
-    recycleBin: { top: '50px', left: '10px' },
+    recycleBin: { top: '50px', left: '20px' },
     folder: { top: '150px', left: '20px' },
     vscode: { top: '250px', left: '14px' },
+    projects: { top: '350px', left: '13px' },
   });
 
   const [showResume, setShowResume] = useState(false);
+  const [showProjects, setShowProjects] = useState(false); 
   const [isMaximized, setIsMaximized] = useState(false);
   const [pdfPosition, setPdfPosition] = useState({ top: '50px', left: '50px' });
   const [pdfSize, setPdfSize] = useState({ width: '500px', height: '600px' });
@@ -105,6 +108,14 @@ function HomePage() {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
+  const openProjects = () => {
+    setShowProjects(true);
+  };
+
+  const closeProjects = () => {
+    setShowProjects(false);
+  };
+
   return (
     <div
       className="homePage"
@@ -158,6 +169,21 @@ function HomePage() {
         <span className="vscode-label">VS Code</span>
       </div>
 
+      <div
+        className="projects-container-main"
+        style={{ top: positions.projects.top, left: positions.projects.left }}
+        draggable
+        onDragStart={(e) => handleDragStart(e, 'projects')}
+        onClick={openProjects} 
+      >
+        <img
+          src={Projects}
+          alt="Projects"
+          className="projects-icon"
+        />
+        <span className="projects-label">Projects</span>
+      </div>
+
       {showResume && (
         <div
           className="pdf-container"
@@ -187,6 +213,15 @@ function HomePage() {
             height="100%"
             className="pdf-viewer"
           />
+        </div>
+      )}
+
+      {showProjects && (
+        <div className="projects-overlay">
+          <ProjectsComponent />
+          <button className="close-projects" onClick={closeProjects}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </div>
       )}
 
