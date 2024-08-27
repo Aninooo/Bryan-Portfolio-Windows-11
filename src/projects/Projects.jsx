@@ -4,7 +4,6 @@ import './Projects.css';
 const Projects = () => {
   return (
     <div className="projects-section">
-      <div className='proj-title'>Projects</div>
 
       <div className="projects-container">
         <div className="project-item">

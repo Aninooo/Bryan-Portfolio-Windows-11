@@ -88,31 +88,61 @@ html, body {
   height: 100%;
 }
 
-
 .projects-overlay {
-  position: fixed;
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  z-index: 2000;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%; 
+  max-width: 800px; 
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+}
+
+.projects-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  text-align: center; 
+  flex: 1; 
 }
 
 .close-projects {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
+  background: none;
   border: none;
-  padding: 10px;
   cursor: pointer;
+  font-size: 24px;
+  color: black;
 }
-.close-projects:hover{
-  background-color: rgb(162, 44, 44);
+
+.projects-container {
+  width: 80%; 
+  max-width: 800px; 
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.projects-container h3 {
+  margin: 0;
+}
+
+.projects-container p {
+  margin: 5px 0;
 }

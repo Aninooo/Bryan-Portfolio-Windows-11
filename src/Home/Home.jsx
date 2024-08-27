@@ -206,6 +206,7 @@ function HomePage() {
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
+          {/* Embedded PDF Viewer*/}
           <iframe
             src={resumePdf}
             title="Resume PDF"
@@ -216,14 +217,18 @@ function HomePage() {
         </div>
       )}
 
-      {showProjects && (
-        <div className="projects-overlay">
-          <ProjectsComponent />
-          <button className="close-projects" onClick={closeProjects}>
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
-        </div>
-      )}
+{showProjects && (
+  <div className="projects-overlay">
+    <div className="projects-header">
+      <h2 className="projects-title">Projects</h2>
+      <button className="close-projects" onClick={closeProjects}>
+        <FontAwesomeIcon icon={faTimes} />
+      </button>
+    </div>
+    <ProjectsComponent />
+  </div>
+)}
+
 
       <Footer />
     </div>
