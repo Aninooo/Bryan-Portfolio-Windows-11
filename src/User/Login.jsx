@@ -9,6 +9,8 @@ function LoginScreen({ onLogin }) {
   const [showPowerMenu, setShowPowerMenu] = useState(false);
   const [showSignInOptions, setShowSignInOptions] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showShutdownPopup, setShowShutdownPopup] = useState(false);
+  const [shutdown, setShutdown] = useState(false);
 
   const handleForgotPIN = () => {
     alert('Forgot PIN clicked!');
@@ -35,17 +37,36 @@ function LoginScreen({ onLogin }) {
       }, 2000);
     }
   };
-    const handleFormSubmit = (e) => {
+  
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     handleLogin();
+  };
+
+  const handleShutdownClick = () => {
+    setShowShutdownPopup(true);
+  };
+
+  const confirmShutdown = () => {
+    setShowShutdownPopup(false);
+    setShutdown(true);
+    setTimeout(() => {
+      setShutdown(false);
+      window.close(); 
+    }, 2000);
+  };
+
+  const cancelShutdown = () => {
+    setShowShutdownPopup(false);
   };
 
   return (
     <div className="container">
       <div className="backgroundImage"></div>
       <div className="contentWrapper">
-        {loading ? (
+        {loading || shutdown ? (
           <div className="loading">
+            <p>{shutdown ? "Shutting down..." : "Loading..."}</p>
             <div className="spinner">
               <div></div>
             </div>
@@ -109,12 +130,30 @@ function LoginScreen({ onLogin }) {
         <i className="fas fa-wifi"></i>
         {showPowerMenu && (
           <div className="powerMenu">
-            <button className="powerMenuOption">Sleep</button>
-            <button className="powerMenuOption">Shutdown</button>
-            <button className="powerMenuOption">Restart</button>
+            <button className="powerMenuOption" onClick={handleShutdownClick}>
+              <i className="fas fa-power-off powerMenuIcon"></i> Shutdown
+            </button>
+            <button className="powerMenuOption">
+              <i className="fas fa-moon powerMenuIcon"></i> Sleep
+            </button>
+            <button className="powerMenuOption">
+              <i className="fas fa-sync-alt powerMenuIcon"></i> Restart
+            </button>
           </div>
         )}
       </div>
+
+      {showShutdownPopup && (
+        <div className="shutdownPopup">
+          <div className="popupContent">
+            <p>Are you sure you want to shut down?</p>
+            <div className="popupButtons">
+              <button className="popupButtonYes" onClick={confirmShutdown}>Yes</button>
+              <button className="popupButton" onClick={cancelShutdown}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
