@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProfilePic from "../assets/login/bryan.webp";
 import './Login.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function LoginScreen({ onLogin }) {
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState(''); 
+  const [errorMessage, setErrorMessage] = useState('');
   const [showPowerMenu, setShowPowerMenu] = useState(false);
   const [showSignInOptions, setShowSignInOptions] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showShutdownPopup, setShowShutdownPopup] = useState(false);
   const [shutdown, setShutdown] = useState(false);
   const [blackScreenVisible, setBlackScreenVisible] = useState(false);
+  const [sleepMode, setSleepMode] = useState(false);
+  const [sleepLoading, setSleepLoading] = useState(false);
+
+  const powerMenuRef = useRef(null);
 
   const handleForgotPIN = () => {
-    alert('Forgot PIN clicked!');
+    alert('Just enter any number and press Enter');
   };
 
   const handlePowerClick = () => {
-    setShowPowerMenu(!showPowerMenu);
+    setShowPowerMenu(prev => !prev);
   };
 
   const handleSignInOptionsClick = () => {
@@ -34,11 +38,11 @@ function LoginScreen({ onLogin }) {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        onLogin(); 
+        onLogin();
       }, 2000);
     }
   };
-  
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     handleLogin();
@@ -50,19 +54,64 @@ function LoginScreen({ onLogin }) {
 
   const confirmShutdown = () => {
     setShowShutdownPopup(false);
-    setLoading(true); 
+    setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setBlackScreenVisible(true); 
+      setBlackScreenVisible(true);
       setTimeout(() => {
-        window.close(); 
-      }, 1000); 
-    }, 2000); 
+        window.close();
+      }, 1000);
+    }, 2000);
   };
 
   const cancelShutdown = () => {
     setShowShutdownPopup(false);
   };
+
+  const handleSleepClick = () => {
+    setSleepLoading(true); 
+    setTimeout(() => {
+      setSleepMode(true);
+      setBlackScreenVisible(true);
+      setSleepLoading(false); 
+    }, 2000); 
+  };
+
+  const cancelSleepMode = () => {
+    setSleepMode(false);
+    setBlackScreenVisible(false);
+  };
+
+  const getTime = () => {
+    const now = new Date();
+    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
+  const handleWakeUp = () => {
+    if (blackScreenVisible || sleepMode) {
+      setBlackScreenVisible(false);
+      setSleepMode(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleMouseClick = (event) => {
+      if (powerMenuRef.current && !powerMenuRef.current.contains(event.target) && !event.target.closest('.fa-power-off')) {
+        setShowPowerMenu(false);
+      }
+      handleWakeUp();
+    };
+
+    const handleKeyPress = () => handleWakeUp();
+
+    window.addEventListener('click', handleMouseClick);
+    window.addEventListener('keypress', handleKeyPress);
+
+    return () => {
+      window.removeEventListener('click', handleMouseClick);
+      window.removeEventListener('keypress', handleKeyPress);
+    };
+  }, [blackScreenVisible, sleepMode]);
 
   return (
     <div className="container">
@@ -74,6 +123,17 @@ function LoginScreen({ onLogin }) {
             <div className="spinner">
               <div></div>
             </div>
+          </div>
+        ) : sleepLoading ? ( 
+          <div className="loading">
+            <p>Preparing sleep mode...</p>
+            <div className="spinner">
+              <div></div>
+            </div>
+          </div>
+        ) : sleepMode ? (
+          <div className="sleepScreen">
+            <p className="sleepTime">{getTime()}</p>
           </div>
         ) : (
           <>
@@ -133,11 +193,11 @@ function LoginScreen({ onLogin }) {
         <i className="fas fa-power-off" onClick={handlePowerClick}></i>
         <i className="fas fa-wifi"></i>
         {showPowerMenu && (
-          <div className="powerMenu">
+          <div className="powerMenu" ref={powerMenuRef}>
             <button className="powerMenuOption" onClick={handleShutdownClick}>
               <i className="fas fa-power-off powerMenuIcon"></i> Shutdown
             </button>
-            <button className="powerMenuOption">
+            <button className="powerMenuOption" onClick={handleSleepClick}>
               <i className="fas fa-moon powerMenuIcon"></i> Sleep
             </button>
             <button className="powerMenuOption">
@@ -160,7 +220,7 @@ function LoginScreen({ onLogin }) {
       )}
 
       {/* Black Screen */}
-      {blackScreenVisible && (
+      {blackScreenVisible && !sleepMode && (
         <div className="blackScreen"></div>
       )}
     </div>

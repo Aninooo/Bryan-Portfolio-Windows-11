@@ -130,3 +130,14 @@ input::placeholder {
   font-size: 14px;
   color: #333;
 }
+.branding-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+}

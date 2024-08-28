@@ -134,7 +134,7 @@ function HomePage() {
           src={recycleBinImage}
           alt="Recycle Bin"
           className="recycle-bin-img"
-          onClick={() => alert('Recycle Bin Clicked!')}
+          onClick={() => alert('suggest ano pwede i lagay dito')}
         />
         <span className="icon-label">Recycle Bin</span>
       </div>

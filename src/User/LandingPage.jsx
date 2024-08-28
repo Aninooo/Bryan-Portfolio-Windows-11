@@ -46,6 +46,7 @@ function LandingPage({ onEnter }) {
         <i className={`${styles.icon} fas fa-wifi`}></i> 
         <i className={`${styles.icon} fas fa-lan`}></i> 
       </div>
+
     </div>
   );
 }
