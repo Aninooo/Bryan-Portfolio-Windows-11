@@ -39,7 +39,6 @@ function LandingPage({ onEnter }) {
       <div className={styles.content}>
         <h1>{formattedTime}</h1>
         <p>{formattedDate}</p>
-        <p>Press "Enter" to proceed to the login page</p>
       </div>
       <div className={styles.icons}>
         <i className={`${styles.icon} fas fa-battery-three-quarters`}></i> 
