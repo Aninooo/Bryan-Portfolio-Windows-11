@@ -1,7 +1,7 @@
 body {
   height: 100%;
   font-family: Arial, sans-serif;
-  background: url('../assets/1251400.jpg') no-repeat center center fixed;
+  background: url('../assets/login-image.webp') no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
   
@@ -11,7 +11,7 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url('../assets/1251400.jpg') no-repeat center center fixed;
+  background: url('../assets/login-image.webp') no-repeat center center fixed;
   background-size: cover;
   transition: filter 1s ease;
 }
