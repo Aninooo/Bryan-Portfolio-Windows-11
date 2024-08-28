@@ -98,7 +98,7 @@ input::placeholder {
     bottom: 20px;
     right: 20px;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -114,10 +114,10 @@ input::placeholder {
     margin-bottom: 20px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 55px;
     background: rgba(34, 33, 33, 0.7);
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
@@ -134,7 +134,7 @@ input::placeholder {
   }
   
   .powerMenuIcon {
-    margin-right: 10px; 
+    margin-right: 20px; 
     font-size: 18px;
   }
   
@@ -157,6 +157,9 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     transition: color 0.3s ease;
+}
+.signInOptionsButton:hover{
+    color: #d3d3d3; 
 }
   
 .signInOptionsButton .fa-chevron-down {
