@@ -5,7 +5,6 @@ import LoginScreen from './User/Login.jsx';
 import Home from './Home/Home.jsx';
 import ChromePage from './ChromePage.jsx';
 import Layout from './Layout.jsx';
-import DinoGameModal from './dino-game/DinoGameModal.jsx'; // Import the Dino game modal
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -20,14 +19,6 @@ function App() {
     setIsLoggedIn(true);
   };
 
-  const openDinoGame = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeDinoGame = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <Router>
       <Routes>
@@ -37,7 +28,7 @@ function App() {
           </>
         ) : (
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home openDinoGame={openDinoGame} />} />
+            <Route index element={<Home />} />
             <Route path="/chrome" element={<ChromePage />} />
           </Route>
         )}
