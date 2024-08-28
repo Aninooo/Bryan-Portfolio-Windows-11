@@ -11,6 +11,7 @@ function LoginScreen({ onLogin }) {
   const [loading, setLoading] = useState(false);
   const [showShutdownPopup, setShowShutdownPopup] = useState(false);
   const [shutdown, setShutdown] = useState(false);
+  const [blackScreenVisible, setBlackScreenVisible] = useState(false);
 
   const handleForgotPIN = () => {
     alert('Forgot PIN clicked!');
@@ -49,11 +50,14 @@ function LoginScreen({ onLogin }) {
 
   const confirmShutdown = () => {
     setShowShutdownPopup(false);
-    setShutdown(true);
+    setLoading(true); 
     setTimeout(() => {
-      setShutdown(false);
-      window.close(); 
-    }, 2000);
+      setLoading(false);
+      setBlackScreenVisible(true); 
+      setTimeout(() => {
+        window.close(); 
+      }, 1000); 
+    }, 2000); 
   };
 
   const cancelShutdown = () => {
@@ -64,9 +68,9 @@ function LoginScreen({ onLogin }) {
     <div className="container">
       <div className="backgroundImage"></div>
       <div className="contentWrapper">
-        {loading || shutdown ? (
+        {loading && !blackScreenVisible ? (
           <div className="loading">
-            <p>{shutdown ? "Shutting down..." : "Loading..."}</p>
+            <p>Loading...</p>
             <div className="spinner">
               <div></div>
             </div>
@@ -153,6 +157,11 @@ function LoginScreen({ onLogin }) {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Black Screen */}
+      {blackScreenVisible && (
+        <div className="blackScreen"></div>
       )}
     </div>
   );
