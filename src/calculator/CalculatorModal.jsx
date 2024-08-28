@@ -26,7 +26,7 @@ function CalculatorModal({ onClose }) {
         <button className="calculator-modal-close" onClick={onClose}>X</button>
         <div className="calculator-body">
           <h2>Calculator</h2>
-          <input type="text" value={input} readOnly />
+          <input className='calculator-input' type="text" value={input} readOnly />
           <div className="button-grid">
             <button onClick={() => handleButtonClick('1')}>1</button>
             <button onClick={() => handleButtonClick('2')}>2</button>
