@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.5);
+    color: black;
   }
   
   .calculator-modal-content {
@@ -54,7 +55,7 @@
     gap: 10px;
   }
   
-  button {
+  .calculator-button {
     padding: 20px;
     font-size: 1.2em;
     border: none;
@@ -63,7 +64,7 @@
     background: #f0f0f0;
   }
   
-  button:hover {
+  .calculator-button:hover {
     background: #ddd;
   }
   

@@ -4,11 +4,13 @@ import Folder from '../assets/folder.png';
 import Vscode from '../assets/vscode.png';
 import Projects from '../assets/projects.png';
 import Calculator from '../assets/calculator.png';
+import dinoImage from '../assets/dino.png';
 import resumePdf from '../assets/lomerio_resume.pdf';
 import Footer from './Footer';
 import ProjectsComponent from '../projects/Projects'; 
 import './Home.css';
 import CalculatorModal from '../calculator/CalculatorModal.jsx';
+import DinoGameModal from '../dino-game/DinoGameModal.jsx'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMinimize, faExpand, faCompress, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,7 +20,8 @@ function HomePage() {
     folder: { top: '150px', left: '20px' },
     vscode: { top: '250px', left: '14px' },
     projects: { top: '350px', left: '13px' },
-    calculator: { top: '450px', left: '10px' }, 
+    calculator: { top: '450px', left: '10px' },
+    dino: { top: '550px', left: '10px' }, 
   });
 
   const [showResume, setShowResume] = useState(false);
@@ -26,7 +29,8 @@ function HomePage() {
   const [isMaximized, setIsMaximized] = useState(false);
   const [pdfPosition, setPdfPosition] = useState({ top: '50px', left: '50px' });
   const [pdfSize, setPdfSize] = useState({ width: '500px', height: '600px' });
-  const [showCalculator, setShowCalculator] = useState(false); 
+  const [showCalculator, setShowCalculator] = useState(false);
+  const [showDinoModal, setShowDinoModal] = useState(false); 
 
   const pdfRef = useRef(null);
   const startDragPosition = useRef({ x: 0, y: 0 });
@@ -121,11 +125,19 @@ function HomePage() {
   };
 
   const openCalculator = () => {
-    setShowCalculator(true); 
+    setShowCalculator(true);
   };
 
   const closeCalculator = () => {
     setShowCalculator(false);
+  };
+
+  const openDinoModal = () => {
+    setShowDinoModal(true);
+  };
+
+  const closeDinoModal = () => {
+    setShowDinoModal(false);
   };
 
   return (
@@ -186,7 +198,7 @@ function HomePage() {
         style={{ top: positions.projects.top, left: positions.projects.left }}
         draggable
         onDragStart={(e) => handleDragStart(e, 'projects')}
-        onClick={openProjects} 
+        onClick={openProjects}
       >
         <img
           src={Projects}
@@ -201,7 +213,7 @@ function HomePage() {
         style={{ top: positions.calculator.top, left: positions.calculator.left }}
         draggable
         onDragStart={(e) => handleDragStart(e, 'calculator')}
-        onClick={openCalculator} 
+        onClick={openCalculator}
       >
         <img
           src={Calculator}
@@ -209,6 +221,21 @@ function HomePage() {
           className="calculator-icon"
         />
         <span className="calculator-label">Calculator</span>
+      </div>
+
+      <div
+        className="dino-container"
+        style={{ top: positions.dino.top, left: positions.dino.left }}
+        draggable
+        onDragStart={(e) => handleDragStart(e, 'dino')}
+        onClick={openDinoModal}
+      >
+        <img
+          src={dinoImage}
+          alt="Dino Game"
+          className="dino-icon"
+        />
+        <span className="dino-label">Dino Game</span>
       </div>
 
       {showResume && (
@@ -225,8 +252,8 @@ function HomePage() {
           onMouseDown={handleMouseDown}
         >
           <div className="pdf-header">
-            <button onClick={closeResume}><FontAwesomeIcon icon={faTimes} /></button>
-            <button onClick={isMaximized ? restoreResume : maximizeResume}>
+            <button className='resume-close' onClick={closeResume}><FontAwesomeIcon icon={faTimes} /></button>
+            <button className="resume-maximize" onClick={isMaximized ? restoreResume : maximizeResume}>
               <FontAwesomeIcon icon={isMaximized ? faWindowMinimize : faExpand} />
             </button>
           </div>
@@ -239,11 +266,17 @@ function HomePage() {
       )}
 
       {showProjects && (
-        <ProjectsComponent closeProjects={closeProjects} />
+        <div className="projects-modal">
+          <ProjectsComponent onClose={closeProjects} />
+        </div>
       )}
 
       {showCalculator && (
         <CalculatorModal onClose={closeCalculator} />
+      )}
+
+      {showDinoModal && (
+        <DinoGameModal onClose={closeDinoModal} />
       )}
 
       <Footer />

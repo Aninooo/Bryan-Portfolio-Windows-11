@@ -214,7 +214,7 @@ function LoginScreen({ onLogin }) {
             <p>Are you sure you want to shut down?</p>
             <div className="popupButtons">
               <button className="popupButtonYes" onClick={confirmShutdown}>Yes</button>
-              <button className="popupButton" onClick={cancelShutdown}>No</button>
+              <button className="popupButtonNo" onClick={cancelShutdown}>No</button>
             </div>
           </div>
         </div>

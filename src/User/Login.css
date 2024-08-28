@@ -164,10 +164,6 @@ input::placeholder {
     transition: transform 0.3s ease;
 }
   
-.signInOptionsButton:hover {
-    color: #d3d3d3;
-}
-  
 .signInOptionsMenu {
     display: flex;
     justify-content: center;
@@ -247,9 +243,10 @@ input::placeholder {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    gap: 100px;
 }
 
-.popupButton {
+.popupButtonNo {
     padding: 10px 20px;
     border: none;
     background-color: #0078d4;
@@ -272,7 +269,7 @@ input::placeholder {
 .popupButtonYes:hover{
     background-color: red;
 }
-.popupButton:hover {
+.popupButtonNo:hover {
     background-color: #005a9e;
 }
 

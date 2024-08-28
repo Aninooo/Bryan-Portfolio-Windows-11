@@ -21,7 +21,7 @@ html, body {
   position: relative;
 }
 
-.icon-container, .resume-container, .vscode-container, .projects-container-main, .calculator-container {
+.icon-container, .resume-container, .vscode-container, .projects-container-main, .calculator-container, .dino-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,17 +35,18 @@ html, body {
 .resume-container:hover,
 .vscode-container:hover,
 .projects-container-main:hover,
-.calculator-container:hover {
+.calculator-container:hover,
+.dino-container:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.icon-label, .resume-label, .vscode-label, .projects-label, .calculator-label {
+.icon-label, .resume-label, .vscode-label, .projects-label, .calculator-label, .dino-label {
   margin-top: 5px;
   font-size: 14px;
   color: #fff;
 }
 
-.recycle-bin-img, .resume-icon, .vscode-icon, .projects-icon, .calculator-icon  {
+.recycle-bin-img, .resume-icon, .vscode-icon, .projects-icon, .calculator-icon, .dino-icon {
   width: 50px;
   height: 50px;
 }
@@ -61,14 +62,15 @@ html, body {
 
 .pdf-header {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: center;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   background-color: #f0f0f0;
-  cursor: move; 
+  cursor: move;
+  position: relative;
 }
 
-.pdf-button1, .pdf-button2 {
+.pdf-button1 {
   border: none;
   background: transparent;
   cursor: pointer;
@@ -76,44 +78,33 @@ html, body {
   color: #333;
 }
 
-.pdf-button1 {
-  margin-left: 10px;
+.pdf-button2 {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  margin-left: 100px;
 }
 
 .pdf-button2:hover {
   color: red;
 }
-
-.pdf-viewer {
-  width: 100%;
-  height: 100%;
+.resume-maximize{
+  margin-right: 20px;
+}
+.resume-close {
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
 }
 
-.projects-overlay {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
 
-.projects-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%; 
-  max-width: 800px; 
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
 
 .projects-title {
   font-size: 24px;
@@ -147,3 +138,4 @@ html, body {
 .projects-container p {
   margin: 5px 0;
 }
+
