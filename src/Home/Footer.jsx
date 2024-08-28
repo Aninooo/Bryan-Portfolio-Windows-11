@@ -9,6 +9,7 @@ import { faWifi, faVolumeUp, faBell } from '@fortawesome/free-solid-svg-icons';
 import Recyclebin from '../assets/recycle-bin.png';
 import Fileexplorer from '../assets/file-explorer.png';
 import Vscode from '../assets/vscode.png';
+import ProfilePic from '../assets/login/bryan.webp';
 
 const Footer = () => {
   const navigate = useNavigate(); 
@@ -91,6 +92,11 @@ const Footer = () => {
           <div className="recommendations">
             <div className="section-recommended">Recommended <span className='recommended-arrow'>More &nbsp; &nbsp;{">"}</span></div>
           </div>
+          {/*menu footer*/}
+          <div className='menu-footer'>
+
+          <div className='menu-footer-pic'><img className='profilePic-menu' src={ProfilePic} alt="bryan" /><span className='menu-name'>Bryan</span></div>
+        </div>
         </div>
       )}
     </div>
