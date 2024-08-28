@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import recycleBinImage from '../assets/recycle-bin.png';
 import Folder from '../assets/folder.png';
 import Vscode from '../assets/vscode.png';
-import resumePdf from '../assets/lomerio_resume.pdf';
 import Projects from '../assets/projects.png';
+import Calculator from '../assets/calculator.png';
+import resumePdf from '../assets/lomerio_resume.pdf';
 import Footer from './Footer';
 import ProjectsComponent from '../projects/Projects'; 
 import './Home.css';
+import CalculatorModal from '../calculator/CalculatorModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMinimize, faExpand, faCompress, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,6 +18,7 @@ function HomePage() {
     folder: { top: '150px', left: '20px' },
     vscode: { top: '250px', left: '14px' },
     projects: { top: '350px', left: '13px' },
+    calculator: { top: '450px', left: '10px' }, 
   });
 
   const [showResume, setShowResume] = useState(false);
@@ -23,6 +26,7 @@ function HomePage() {
   const [isMaximized, setIsMaximized] = useState(false);
   const [pdfPosition, setPdfPosition] = useState({ top: '50px', left: '50px' });
   const [pdfSize, setPdfSize] = useState({ width: '500px', height: '600px' });
+  const [showCalculator, setShowCalculator] = useState(false); 
 
   const pdfRef = useRef(null);
   const startDragPosition = useRef({ x: 0, y: 0 });
@@ -116,6 +120,14 @@ function HomePage() {
     setShowProjects(false);
   };
 
+  const openCalculator = () => {
+    setShowCalculator(true); 
+  };
+
+  const closeCalculator = () => {
+    setShowCalculator(false);
+  };
+
   return (
     <div
       className="homePage"
@@ -184,6 +196,21 @@ function HomePage() {
         <span className="projects-label">Projects</span>
       </div>
 
+      <div
+        className="calculator-container"
+        style={{ top: positions.calculator.top, left: positions.calculator.left }}
+        draggable
+        onDragStart={(e) => handleDragStart(e, 'calculator')}
+        onClick={openCalculator} 
+      >
+        <img
+          src={Calculator}
+          alt="Calculator"
+          className="calculator-icon"
+        />
+        <span className="calculator-label">Calculator</span>
+      </div>
+
       {showResume && (
         <div
           className="pdf-container"
@@ -193,42 +220,31 @@ function HomePage() {
             left: pdfPosition.left,
             width: pdfSize.width,
             height: pdfSize.height,
+            position: 'absolute',
           }}
+          onMouseDown={handleMouseDown}
         >
-          <div
-            className="pdf-header"
-            onMouseDown={handleMouseDown}
-          >
-            <button className="pdf-button1" onClick={isMaximized ? restoreResume : maximizeResume}>
-              <FontAwesomeIcon icon={isMaximized ? faCompress : faExpand} />
-            </button>
-            <button className="pdf-button2" onClick={closeResume}>
-              <FontAwesomeIcon icon={faTimes} />
+          <div className="pdf-header">
+            <button onClick={closeResume}><FontAwesomeIcon icon={faTimes} /></button>
+            <button onClick={isMaximized ? restoreResume : maximizeResume}>
+              <FontAwesomeIcon icon={isMaximized ? faWindowMinimize : faExpand} />
             </button>
           </div>
-          {/* Embedded PDF Viewer*/}
           <iframe
             src={resumePdf}
-            title="Resume PDF"
-            width="100%"
-            height="100%"
-            className="pdf-viewer"
+            title="Resume"
+            style={{ width: '100%', height: '100%' }}
           />
         </div>
       )}
 
-{showProjects && (
-  <div className="projects-overlay">
-    <div className="projects-header">
-      <h2 className="projects-title">Projects</h2>
-      <button className="close-projects" onClick={closeProjects}>
-        <FontAwesomeIcon icon={faTimes} />
-      </button>
-    </div>
-    <ProjectsComponent />
-  </div>
-)}
+      {showProjects && (
+        <ProjectsComponent closeProjects={closeProjects} />
+      )}
 
+      {showCalculator && (
+        <CalculatorModal onClose={closeCalculator} />
+      )}
 
       <Footer />
     </div>

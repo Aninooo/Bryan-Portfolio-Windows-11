@@ -21,7 +21,7 @@ html, body {
   position: relative;
 }
 
-.icon-container, .resume-container, .vscode-container, .projects-container-main {
+.icon-container, .resume-container, .vscode-container, .projects-container-main, .calculator-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,17 +34,18 @@ html, body {
 .icon-container:hover,
 .resume-container:hover,
 .vscode-container:hover,
-.projects-container-main:hover {
+.projects-container-main:hover,
+.calculator-container:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.icon-label, .resume-label, .vscode-label, .projects-label {
+.icon-label, .resume-label, .vscode-label, .projects-label, .calculator-label {
   margin-top: 5px;
   font-size: 14px;
   color: #fff;
 }
 
-.recycle-bin-img, .resume-icon, .vscode-icon, .projects-icon {
+.recycle-bin-img, .resume-icon, .vscode-icon, .projects-icon, .calculator-icon  {
   width: 50px;
   height: 50px;
 }
@@ -111,7 +112,7 @@ html, body {
   background-color: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .projects-title {

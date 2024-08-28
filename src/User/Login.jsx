@@ -14,11 +14,12 @@ function LoginScreen({ onLogin }) {
   const [blackScreenVisible, setBlackScreenVisible] = useState(false);
   const [sleepMode, setSleepMode] = useState(false);
   const [sleepLoading, setSleepLoading] = useState(false);
+  const [showForgotPinPopup, setShowForgotPinPopup] = useState(false);
 
   const powerMenuRef = useRef(null);
 
   const handleForgotPIN = () => {
-    alert('Just enter any number and press Enter');
+    setShowForgotPinPopup(true);
   };
 
   const handlePowerClick = () => {
@@ -215,6 +216,15 @@ function LoginScreen({ onLogin }) {
               <button className="popupButtonYes" onClick={confirmShutdown}>Yes</button>
               <button className="popupButton" onClick={cancelShutdown}>No</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {showForgotPinPopup && (
+        <div className="forgotPinPopup">
+          <div className="popupContent">
+            <p>Just enter any number and press Enter</p>
+            <button className="closePopupButton" onClick={() => setShowForgotPinPopup(false)}>Close</button>
           </div>
         </div>
       )}
