@@ -32,7 +32,6 @@ function LoginScreen({ onLogin }) {
 
   const handleLogin = () => {
     if (password === '') {
-      alert('Please enter your PIN.');
     } else if (!/^\d+$/.test(password)) {
       setErrorMessage('Invalid PIN. Please enter only digits.');
     } else {
