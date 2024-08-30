@@ -5,7 +5,7 @@ import Windows11 from '../assets/windows11.png';
 import Chrome from '../assets/chrome.png';
 import FileExplorer from '../assets/file-explorer.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWifi, faVolumeUp, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faWifi, faVolumeUp, faBell, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import Recyclebin from '../assets/recycle-bin.png';
 import Fileexplorer from '../assets/file-explorer.png';
 import Vscode from '../assets/vscode.png';
@@ -15,6 +15,7 @@ const Footer = () => {
   const navigate = useNavigate(); 
   const [time, setTime] = useState(new Date());
   const [showStartMenu, setShowStartMenu] = useState(false);
+  const [showPowerOptions, setShowPowerOptions] = useState(false); 
 
   const openChromePage = () => {
     navigate('/chrome'); 
@@ -22,6 +23,10 @@ const Footer = () => {
 
   const toggleStartMenu = () => {
     setShowStartMenu(!showStartMenu);
+  };
+
+  const togglePowerOptions = () => {
+    setShowPowerOptions(!showPowerOptions);
   };
 
   useEffect(() => {
@@ -67,20 +72,20 @@ const Footer = () => {
             <div className="pin-title">Pinned</div>
             <div className="apps-list">
               <div>
-              <img src={Chrome} alt="Chrome" className="app-icon-chrome" />
-              <span className='chrome-label'>Chrome</span>
+                <img src={Chrome} alt="Chrome" className="app-icon-chrome" />
+                <span className='chrome-label'>Chrome</span>
               </div>
               <div>
-              <img src={Recyclebin} alt="bin" className="app-icon-recyclebin" />
-              <span className='recyclebin'>Recyclebin</span>
+                <img src={Recyclebin} alt="bin" className="app-icon-recyclebin" />
+                <span className='recyclebin'>Recyclebin</span>
               </div>
               <div>
-              <img src={Fileexplorer} alt="file" className="app-icon-fileexplorer" />
-              <span className='fileexplorer'>File Explorer</span>
+                <img src={Fileexplorer} alt="file" className="app-icon-fileexplorer" />
+                <span className='fileexplorer'>File Explorer</span>
               </div>
               <div>
-              <img src={Vscode} alt="vscode" className="app-icon-vscode" />
-              <span className='vscode'>Vs code</span>
+                <img src={Vscode} alt="vscode" className="app-icon-vscode" />
+                <span className='vscode'>Vs code</span>
               </div>
             </div>
           </div>
@@ -94,9 +99,19 @@ const Footer = () => {
           </div>
           {/*menu footer*/}
           <div className='menu-footer'>
-
-          <div className='menu-footer-pic'><img className='profilePic-menu' src={ProfilePic} alt="bryan" /><span className='menu-name'>Bryan</span></div>
-        </div>
+            <div className='menu-footer-pic'>
+              <img className='profilePic-menu' src={ProfilePic} alt="bryan" />
+              <span className='menu-name'>Bryan</span>
+            </div>
+            <FontAwesomeIcon icon={faPowerOff} className="power-icon" onClick={togglePowerOptions} />
+            {showPowerOptions && (
+              <div className="power-options">
+                <div className="power-option">Shut Down</div>
+                <div className="power-option">Sleep</div>
+                <div className="power-option">Restart</div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
