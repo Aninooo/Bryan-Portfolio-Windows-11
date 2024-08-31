@@ -4,6 +4,7 @@
     align-items: center;
     padding: 20px;
     width: 100%;
+    margin-left: 400px;
    
   }
   
@@ -27,7 +28,7 @@
   .project-item {
     flex: 1 1 calc(25% - 20px);
     box-sizing: border-box;
-    background-color: red;
+    background-color: gray;
     padding: 10px;
     margin-bottom: 20px;
   }
