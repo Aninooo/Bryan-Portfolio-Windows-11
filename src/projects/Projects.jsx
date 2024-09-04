@@ -1,5 +1,6 @@
 import React from 'react';
 import './Projects.css';
+import ChatPulse from '../assets/chatpulse.png';
 
 const Projects = () => {
   return (
@@ -7,8 +8,9 @@ const Projects = () => {
 
       <div className="projects-container">
         <div className="project-item">
-          <h3>Proj 1</h3>
-          <p>dasdasd</p>
+          <h3>ChatPulse</h3>
+          <p><a href="https://github.com/Aninooo/ChatPulse.git"><img className='chatpulse' src={ChatPulse} alt="" /></a></p>
+          <p>ChatPulse allows users to join chat rooms, send messages, and share images with others in the same room. </p>
         </div>
         <div className="project-item">
           <h3>Proj 2</h3>
